@@ -43,7 +43,6 @@ class RPNCalculator:
 
     @staticmethod
     def validate_stack(stack: list, operation: Operation):
-        """Validates if the stack has enough operands for the given operation."""
         required_operands = {
             AddOperation: 2,
             SubtractOperation: 2,
@@ -53,6 +52,6 @@ class RPNCalculator:
         }
         required = required_operands[type(operation)]
         if len(stack) < required:
-            raise ValueError(f"Not enough values in the stack for {type(operation).__name__}.")
+            raise ValueError("The provided expression is wrong.")
 
 

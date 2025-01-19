@@ -6,7 +6,6 @@ from typing import List
 class Operation(ABC):
     @abstractmethod
     def execute(self, stack: List[float]) -> None:
-        """Executes the operation and updates the stack."""
         pass
 
 
