@@ -1,0 +1,25 @@
+# docker-compose.yml
+
+version: '3'
+
+services:
+  app:
+    build: .
+    image: fastapi-app:latest  # Define a custom image name for your app
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URI=mongodb://root:example@mongo:27017/app_db?authSource=admin  # MongoDB connection string
+    depends_on:
+      - mongo
+    restart: always
+
+  mongo:
+    image: mongo:latest  # Use the latest official MongoDB image
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: app_db
+    restart: always
