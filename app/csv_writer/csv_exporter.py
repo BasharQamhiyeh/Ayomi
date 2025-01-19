@@ -13,5 +13,5 @@ class CSVExporter:
 
     @staticmethod
     async def fetch_all_operations(db_client):
-        operations = await db_client.operations_collection.find().to_list(length=100)  # Fetch first 100 operations
+        operations = await db_client.operations_collection.find().to_list()  # Fetch first 100 operations
         return [Operation(**op) for op in operations]
