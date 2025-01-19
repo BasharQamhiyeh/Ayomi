@@ -87,3 +87,8 @@ def test_operation_with_sqrt(calculator):
     result = calculator.calculate("5 5 * sqrt")
     assert result == 5
 
+
+def test_invaid_expression(calculator):
+    with pytest.raises(ValueError):
+        calculator.calculate("a b +")
+
