@@ -10,6 +10,7 @@ services:
       - "8000:8000"
     environment:
       - MONGO_URI=mongodb://root:example@mongo:27017/app_db?authSource=admin  # MongoDB connection string
+      - PYTHONUNBUFFERED=1  # Ensures logs are unbuffered
     depends_on:
       - mongo
     restart: always
